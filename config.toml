@@ -10,10 +10,10 @@ theme = "hugo-journal"
   twitterUsername = "ddhr00"
   tagline = "Berbagi itu indah"
 [params.work]
-  jobTitle = "occupation"
-  company = "the company"
-  companyUrl = "https://the.company.url/"
-[params.gpg]
-  key = "0x1111111111111111"
-  fingerprint = "0000 0000 0000 0000 0000  0000 0000 0000 0000 0000"
-  link = "https://pgp.mit.edu/pks/lookup?op=get&search=0x1111111111111111"
+  jobTitle = "Programmer"
+  company = "Asia Digital Indonesia"
+  companyUrl = "https://asiadigitalindonesia.com"
+# [params.gpg]
+#   key = "0x1111111111111111"
+#   fingerprint = "0000 0000 0000 0000 0000  0000 0000 0000 0000 0000"
+#   link = "https://pgp.mit.edu/pks/lookup?op=get&search=0x1111111111111111"
