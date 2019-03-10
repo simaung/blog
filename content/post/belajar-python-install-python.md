@@ -25,15 +25,11 @@ Python 3.6.7
 Versi default python yang terpasang di ubuntu tidak selalu versi yang terbaru, sehingga apabila kamu ingin mengupdate python ke versi yang terbaru caranya kamu bisa ikuti langkah seperti yang saya lakukan berikut ini:  
 
 ### Update python ke versi terbaru
-untuk mengupdate versi python ke versi terbaru kamu bisa ketikkan perintah berikut:
-{{< highlight bash >}}
-$ sudo apt upgrade python3
-{{< /highlight >}}
-Tapi bagaimanapun apabila kamu lebih suka dan ingin menginstall secara manual kamu bisa langsung ke sumber datanya [disini](https://www.python.org/downloads/source/), berikut caranya:
+Disini saya lebih suka menginstall secara manual jadi jika kamu ingin mencobanya bisa langsung ke sumber datanya [disini](https://www.python.org/downloads/source/), berikut caranya:
 
 Download dulu *source* nya dengan perintah di bawah ini.
 {{< highlight bash >}}
-$ https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+$ wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
 {{< /highlight >}}
 Setelah selesai di download, *exctract* hasil download tersebut dengan perintah
 {{< highlight bash >}}
