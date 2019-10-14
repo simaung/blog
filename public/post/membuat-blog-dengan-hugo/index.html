@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id-id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.53" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta property="og:url" content="http://simaung.github.io/post/membuat-blog-dengan-hugo/">
+
+  <title>Membuat Blog Dengan Hugo - Catatan - simaung</title>
+  <meta property="og:title" content="Membuat Blog Dengan Hugo - Catatan - simaung">
+  <meta property="og:type" content="article">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <link rel="stylesheet" href="/css/journal.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Catatan - simaung">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="site-nav">
+      <a href="http://simaung.github.io/">Index</a>
+    </nav>
+
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Membuat Blog Dengan Hugo</h1>
+      <time class="post-date" datetime="2018-08-24 19:49:00 WIB">24 Aug 2018</time>
+    </header>
+
+    
+
+<p>Sekarang saya mencoba memberikan penjelasan bagaimana caranya membuat blog dengan menggunakan <strong>Hugo</strong>, Hugo adalah framework untuk membuat website dengan konsep SSG (<em>Static Site Generator</em>), dimana SSG ini dalam pembuatan webnya tidak memerlukan database sehingga performa web nya bisa lebih cepat di bandingkan web berplatform CMS (<em>Content Management System</em>) karena CMS biasanya menggunakan database untuk menyimpan postingan baik berupa artikel, gambar, dan yang lainnya.</p>
+
+<p>Karena nantinya blog yang kita buat ini akan kita deploy ke github pages, maka kita harus install git terlebih dahulu di sistem kita, setelah git terpasang selanjutnya kita install Hugo.</p>
+
+<h3 id="1-install-git-dan-hugo">1. Install Git dan Hugo</h3>
+
+<p>Disini saya menggunakan sistem operasi ubuntu yang merupakan salah satu distribusi Linux<br />
+Ketikan perintah dibawah untuk menginstall Git di Linux<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apt install git</code></pre></div>
+Untuk memeriksa git apakah sudah terpasang di sistem kita sekaligus untuk melihat versi berapa, gunakan perintah di berikut ini
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git --version</code></pre></div>
+Setelah git terpasang sekarang waktunya kita <strong>Install Hugo</strong>, untuk melihat berbagai versi Hugo silakan lihat di <a href="https://github.com/goHugoio/Hugo/releases">repositori Hugo</a>.<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://github.com/gohugoio/hugo/releases/download/v0.53/hugo_0.53_Linux-64bit.deb</code></pre></div>
+setelah source selesai di download, kita install dengan perintah:<br />
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dpkg -i hugo_0.53_Linux-64bit.deb</code></pre></div>
+Untuk mengecek berhasil atau tidaknya kita menginstall hugo, ketikan perintah berikut:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo version</code></pre></div>
+Apabila muncul tampilan seperti dibawah ini berarti proses menginstall hugo nya sudah berhasil.</p>
+
+<p><img src="/img/membuat-blog-dengan-hugo/hugo-version.png" alt="Example image" /></p>
+
+<h3 id="2-membuat-blog-baru-dengan-hugo">2. Membuat blog baru dengan hugo</h3>
+
+<p>Untuk membuat blog baru hugo menggunakan perintah di bawah ini:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site <span style="color:#f92672">[</span>nama-blog<span style="color:#f92672">]</span></code></pre></div>
+Sebagai contoh saya akan membuat blog bernama <strong>blogku</strong>
+<img src="/img/membuat-blog-dengan-hugo/create_new_site.png" alt="Example image" />
+Maka hugo akan membuatkan direktori baru beserta strukturnya. Serta akan memberikan keterangan di terminal mengenai langkah selanjutnya yang harus di lakukan supaya blogku bisa di jalankan atau di akses via browser</p>
+
+<h3 id="3-menambahkan-tema">3. Menambahkan tema</h3>
+
+<p>Berdasarkan keterangan pada saat kita membuat blog baru, kita di anjurkan menambahkan tema pada blog hugo kita, di hugo sendiri ada banyak tema dari banyak kontributor dan disebarkan secara gratis, silakan cari tema yang kamu sukai di <a href="https://themes.gohugo.io/">sini</a>.</p>
+
+<p>Setelah menemukan tema yang sesuai dengan apa yang kamu inginkan, untuk memasang temanya terlebih dahulu baca dokumentasi dari tema tersebut karena disana ada konfigurasi yang harus diikuti agar temanya bisa digunakan.
+Untuk mengistall tema tersebut masuklah ke direktori <strong>themes</strong>, lalu ketikan perintah dibawah ini untuk mendownload / clone sumber temanya dari github
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone <span style="color:#f92672">[</span>URL_TEMANYA<span style="color:#f92672">]</span></code></pre></div>
+Sebagai contoh saya akan memasang tema yang bernama <a href="https://themes.gohugo.io/hugo-journal/">hugo-journal</a>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/damiencaselli/hugo-journal.git</code></pre></div>
+Setelah tema berhasil terpasang, kembali pindah ke direktori <em>root</em> blognya dan jalankan server hugo.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd ..
+$ hugo server</code></pre></div>
+Maka hugo akan menjalankan server pada alamat default <a href="http://localhost:1313">http://localhost:1313</a>
+<img src="/img/membuat-blog-dengan-hugo/hugo_server.png" alt="Example image" />
+<img src="/img/membuat-blog-dengan-hugo/view_post.png" alt="Example image" />
+Setelah berhasil menambahkan tema sekarang kita lanjut menambahkan artikel/konten pada blog.</p>
+
+<h3 id="4-menulis-artikel-di-blog-hugo">4. Menulis artikel di blog hugo</h3>
+
+<p>Untuk membuat artikel ketikkan perintah di bawah ini di root direktori blognya
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new post/<span style="color:#f92672">[</span>nama-file-konten<span style="color:#f92672">]</span>.md</code></pre></div>
+Sebagai contoh:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new post/membuat-blog-dengan-hugo.md</code></pre></div>
+Maka file baru akan terbuat pada direktori <strong>content/post/</strong> dengan nama <strong>membuat-blog-dengan-hugo.md</strong>
+<img src="/img/membuat-blog-dengan-hugo/new_post.png" alt="Example image" />
+Jangan lupa mengubah nilai <em>draft</em> pada <em>Front Matter</em> menjadi <strong>false</strong>.</p>
+
+<p>Setelah itu simpan, lalu jalankan servernya dan coba lihat perubahannya
+<img src="/img/membuat-blog-dengan-hugo/view_post_2.png" alt="Example image" />
+Mungkin untuk artikel mengenai pembuatan blog nya cukup sampai sini saja, selanjutnya kita akan membahas bagaimana caranya <strong>deploy blog hugo ini ke server</strong> di post yang selanjutnya</p>
+
+
+  </article>
+
+
+      <footer class="site-footer">
+        <span itemscope itemtype="http://schema.org/Person">
+          <link itemprop="url" href="http://simaung.github.io/">
+          <span itemprop="name"></span>
+
+          ,
+          <span itemprop="jobTitle">Programmer</span> at
+          <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="https://asiadigitalindonesia.com"><span itemprop="name">Asia Digital Indonesia</span></a></span><br>
+
+          <a itemprop="sameAs" href="https://github.com/simaung" title="GitHub">GH</a>
+
+          <a itemprop="sameAs" href="https://twitter.com/ddhr00" title="Twitter">TW</a>
+
+          
+        </span>
+
+        
+      </footer>
+    </div>
+
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>
+

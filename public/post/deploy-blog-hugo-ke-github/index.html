@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id-id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.53" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta property="og:url" content="http://simaung.github.io/post/deploy-blog-hugo-ke-github/">
+
+  <title>Deploy Blog Hugo Ke Github - Catatan - simaung</title>
+  <meta property="og:title" content="Deploy Blog Hugo Ke Github - Catatan - simaung">
+  <meta property="og:type" content="article">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <link rel="stylesheet" href="/css/journal.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Catatan - simaung">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="site-nav">
+      <a href="http://simaung.github.io/">Index</a>
+    </nav>
+
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Deploy Blog Hugo Ke Github</h1>
+      <time class="post-date" datetime="2018-08-31 21:42:53 WIB">31 Aug 2018</time>
+    </header>
+
+    
+
+<p>Oke setelah <a href="../membuat-blog-dengan-hugo/">sebelumnya </a> kita membahas bagaimana caranya membuat blog <em>SSG</em> (Static Static Generator) menggunakan hugo, sekarang saya akan membahas caranya mendeploy blog hugo ini ke github.</p>
+
+<p>Disini saya mendeploy hugo ke github sebagai situs personal/organisasi, sebelumnya dipastikan disistem kita sudah terpasang <strong>git</strong> selanjutnya pastikan juga kamu sudah punya akun di <a href="https://github.com">github</a>.</p>
+
+<h3 id="langkah-langkahnya">Langkah-langkahnya</h3>
+
+<p>Sebelumnya kita buat dulu dua buah repositori yang kegunaannya masing-masing untuk menyimpan konten dan source dari blog nya, sementara satu lagi untuk menyimpan hasil render dari blog tersebut.
+Buat dua repo di Github dengan nama sebagai berikut:<br />
+1. blog (opsional) digunakan untuk menyimpan file dan source blog hugo<br />
+2. username.github.io (username di ganti sesuai username atau organisasi kalian ya) digunakan untuk menyimpan hasil render blognya</p>
+
+<p>Masuk ke direktori blog hugo kita, lalu kita inisialisasi git
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd blogku
+$ git init</code></pre></div>
+Setelah itu kita hapus folder public nya
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rm -rf public</code></pre></div>
+setelah itu silakan kalian kaitkan repo lokal ini ke repo <em>remote</em>(github) lalu kita push blog kita ke repo <em>remote</em> tersebut, caranya:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git remote add origin https://github.com/<span style="color:#f92672">{</span>username<span style="color:#f92672">}</span>/<span style="color:#f92672">{</span>nama-repo<span style="color:#f92672">}</span>.git
+$ git add .
+$ git commit -m <span style="color:#e6db74">&#34;first commit&#34;</span>
+$ git push -u origin master</code></pre></div>
+Kita sudah selesai mengupload file blog kita ke repo <em>remote</em> akan tetapi kita belum bisa mengakses blog kita di website dikarenakan blog hugo ini akan bisa di akses melalui alamat url <strong><a href="https://username.github.io">https://username.github.io</a></strong> apabila kita mencoba mengakses url tersebut maka akan muncul keterangan <strong>Error 404 Not Found</strong> itu karena repo tersebut masih kosong, nah sebagai isinya kita akan membuatkan <em>submodule</em> dari repo intinya yaitu repo <strong>blog</strong>.</p>
+
+<p>Pastikan kamu berada di repo <strong>blog</strong>, lalu ketikkan perintah berikut untuk menambahkan <em>submodule</em>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git submodule add -b master https://github.com/<span style="color:#f92672">{</span>username<span style="color:#f92672">}</span>/<span style="color:#f92672">{</span>username<span style="color:#f92672">}</span>.github.io.git public</code></pre></div>
+Perintah tersebut akan melakukan clone repo <strong>username.github.io</strong> ke dalam direktori <strong>public</strong>.
+Sekarang kita mulai mempublikasikan blognya, silakan kamu ketik perintah berikut:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># generate static web</span>
+hugo
+
+<span style="color:#75715e"># push ke repository</span>
+cd public
+git add .
+git commit -m <span style="color:#e6db74">&#34;tes Deploy hugo&#34;</span>
+git push -u origin master</code></pre></div>
+Perintah diatas di pergunakan setiap kali kita mau update konten, lumayan ribet kalo harus terus-terusan ngetik perintah tersebut setiap kali update maka dari itu kita buatkan skrip .sh nya aja biar hanya dengan satu baris perintah kita bisa update blognya
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+echo -e <span style="color:#e6db74">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
+
+<span style="color:#75715e"># Genterate file statis</span>
+hugo <span style="color:#75715e"># if using a theme, replace by `hugo -t &lt;yourtheme&gt;`</span>
+
+<span style="color:#75715e"># pindah ke direktori publik</span>
+cd public
+<span style="color:#75715e"># tambahkan perubahan ke Git</span>
+git add -A
+
+<span style="color:#75715e"># Buat sebuah commit baru</span>
+msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rebuilding site `date`&#34;</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $# -eq <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">then</span> msg<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">fi</span>
+git commit -m <span style="color:#e6db74">&#34;</span>$msg<span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># Push atau puload ke Github</span>
+git push origin master
+
+<span style="color:#75715e"># Balik ke direktori sebelumnya</span>
+cd ..</code></pre></div>
+Kita simpan file tersebut dengan nama <strong>deploy.sh</strong> aja lalu berikan hak akses eksekusi untuk skrip ini
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ chmod +x deploy.sh</code></pre></div>
+Jadi klo kita mau update konten kita tinggal jalankan skrip d<strong>deploy.sh</strong> nya aja
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./deploy.sh
+
+<span style="color:#75715e"># bisa ditambah pesan commitnya</span>
+$ ./deploy.sh <span style="color:#e6db74">&#34;tes deploy web hugo ke github&#34;</span></code></pre></div>
+Sekarang coba kamu akses url <strong>username.github.io</strong> kalau proses deploy kamu sukses kamu akan bisa melihat blog hugo kamu disana</p>
+
+
+  </article>
+
+
+      <footer class="site-footer">
+        <span itemscope itemtype="http://schema.org/Person">
+          <link itemprop="url" href="http://simaung.github.io/">
+          <span itemprop="name"></span>
+
+          ,
+          <span itemprop="jobTitle">Programmer</span> at
+          <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="https://asiadigitalindonesia.com"><span itemprop="name">Asia Digital Indonesia</span></a></span><br>
+
+          <a itemprop="sameAs" href="https://github.com/simaung" title="GitHub">GH</a>
+
+          <a itemprop="sameAs" href="https://twitter.com/ddhr00" title="Twitter">TW</a>
+
+          
+        </span>
+
+        
+      </footer>
+    </div>
+
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>
+
