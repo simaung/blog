@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Catatan - simaung</title>
+    <link>http://simaung.github.io/</link>
+    <description>Recent content on Catatan - simaung</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>id-id</language>
+    <lastBuildDate>Fri, 04 Jan 2019 20:04:07 +0700</lastBuildDate>
+    
+	<atom:link href="http://simaung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Belajar Python: Virtual Environtment</title>
+      <link>http://simaung.github.io/post/virtual-environtment/</link>
+      <pubDate>Fri, 04 Jan 2019 20:04:07 +0700</pubDate>
+      
+      <guid>http://simaung.github.io/post/virtual-environtment/</guid>
+      <description>Apasih virtual environment (venv) itu? jadi begini jika kamu seorang programmer pasti pernah melakukan update versi dari bahasa pemrograman yang kamu pakai ke versi yang terbaru, nah ketika versi bahasa tersebut berhasil kamu update ternyata ada beberapa project kamu yang menggunakan versi lama menjadi error karena ada beberapa method yang tidak sesuai dengan versi yang baru tersebut, jadi di python untuk menangani permasalahan tersebut digunakanlah venv.
+Intinya dengan venv kamu bisa menggunakan versi python yang berbeda untuk setiap projectnya sesuai dengan yang kamu inisialisasikan pada saat pembuatan venv pertama kali.</description>
+    </item>
+    
+    <item>
+      <title>Belajar Python: Install dan Update Python</title>
+      <link>http://simaung.github.io/post/belajar-python-install-python/</link>
+      <pubDate>Tue, 01 Jan 2019 17:08:16 +0700</pubDate>
+      
+      <guid>http://simaung.github.io/post/belajar-python-install-python/</guid>
+      <description>Apabila kamu pengguna linux, python sebenarnya tidak perlu diinstall karena sebagian besar distro linux sudah menyediakannya secara default.
+Untuk mengeceknya silakan ketikkan perintah di bawah ini $ python --version Python 2.7.1 Seperti yang dapat kamu lihat diatas python yang terpasang adalah versi 2.7.1, sebenarnya python ini ada dua versi yang beredar yaitu versi 2 dan versi 3.
+Untuk mengecek masing-masing versi silakan kamu ketikkan perintah berikut # untuk mengecek versi 2 $ python --version Python 2.</description>
+    </item>
+    
+    <item>
+      <title>Mysql dasar menggunakan cli</title>
+      <link>http://simaung.github.io/post/mysql-dasar-menggunakan-cli/</link>
+      <pubDate>Fri, 14 Dec 2018 10:04:51 +0700</pubDate>
+      
+      <guid>http://simaung.github.io/post/mysql-dasar-menggunakan-cli/</guid>
+      <description>Disini saya memberikan beberapa catatan mengenai mysql menggunakan cli / command line interface di ubuntu atau biasa kita sebut dengan terminal.
+masuk ke mysql $ mysql -u root -p # tambah option -p apabila mysql kamu menggunakan password kalo tidak bisa di hilangkan -p nya Enter password: # baris ini akan muncul kalo mysql kamu menggunakan password Setelah kamu berhasil masuk ke mysql maka di terminal akan muncul tampilan seperti berikut.</description>
+    </item>
+    
+    <item>
+      <title>Perintah Terminal yang Sering Dipakai</title>
+      <link>http://simaung.github.io/post/perintah-terminal-sering-di-pakai/</link>
+      <pubDate>Sun, 09 Sep 2018 09:33:21 +0700</pubDate>
+      
+      <guid>http://simaung.github.io/post/perintah-terminal-sering-di-pakai/</guid>
+      <description>Disini saya akan mencatat perintah/sintaks yang sering saya pakai di terminal linux(ubuntu).
+ sudo
+Digunakan untuk mengeksekusi perintah sebagai root/administrator
+sudo su : untuk masuk sebagai super user/administrator ls
+ls : menampilkan isi direktori
+ls -a : menampilkan isi direktori berikut hidden file nya
+ls -l : menampilkan isi direktori berupa nama file/direktori, ukuran, waktu perubahan, pemilik file/folder dan hak akses/permission cd
+cd : berpindah ke home direktori
+cd .. : berpindah ke direktori parent</description>
+    </item>
+    
+    <item>
+      <title>Deploy Blog Hugo Ke Github</title>
+      <link>http://simaung.github.io/post/deploy-blog-hugo-ke-github/</link>
+      <pubDate>Fri, 31 Aug 2018 21:42:53 +0700</pubDate>
+      
+      <guid>http://simaung.github.io/post/deploy-blog-hugo-ke-github/</guid>
+      <description>Oke setelah sebelumnya  kita membahas bagaimana caranya membuat blog SSG (Static Static Generator) menggunakan hugo, sekarang saya akan membahas caranya mendeploy blog hugo ini ke github.
+Disini saya mendeploy hugo ke github sebagai situs personal/organisasi, sebelumnya dipastikan disistem kita sudah terpasang git selanjutnya pastikan juga kamu sudah punya akun di github.
+Langkah-langkahnya Sebelumnya kita buat dulu dua buah repositori yang kegunaannya masing-masing untuk menyimpan konten dan source dari blog nya, sementara satu lagi untuk menyimpan hasil render dari blog tersebut.</description>
+    </item>
+    
+    <item>
+      <title>Membuat Blog Dengan Hugo</title>
+      <link>http://simaung.github.io/post/membuat-blog-dengan-hugo/</link>
+      <pubDate>Fri, 24 Aug 2018 19:49:00 +0700</pubDate>
+      
+      <guid>http://simaung.github.io/post/membuat-blog-dengan-hugo/</guid>
+      <description>Sekarang saya mencoba memberikan penjelasan bagaimana caranya membuat blog dengan menggunakan Hugo, Hugo adalah framework untuk membuat website dengan konsep SSG (Static Site Generator), dimana SSG ini dalam pembuatan webnya tidak memerlukan database sehingga performa web nya bisa lebih cepat di bandingkan web berplatform CMS (Content Management System) karena CMS biasanya menggunakan database untuk menyimpan postingan baik berupa artikel, gambar, dan yang lainnya.
+Karena nantinya blog yang kita buat ini akan kita deploy ke github pages, maka kita harus install git terlebih dahulu di sistem kita, setelah git terpasang selanjutnya kita install Hugo.</description>
+    </item>
+    
+  </channel>
+</rss>

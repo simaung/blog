@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id-id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.53" />
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta property="og:url" content="http://simaung.github.io/post/belajar-python-install-python/">
+
+  <title>Belajar Python: Install dan Update Python - Catatan - simaung</title>
+  <meta property="og:title" content="Belajar Python: Install dan Update Python - Catatan - simaung">
+  <meta property="og:type" content="article">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
+  <link rel="stylesheet" href="/css/highlight.css">
+  <link rel="stylesheet" href="/css/journal.css">
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Catatan - simaung">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="site-nav">
+      <a href="http://simaung.github.io/">Index</a>
+    </nav>
+
+
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Belajar Python: Install dan Update Python</h1>
+      <time class="post-date" datetime="2019-01-01 17:08:16 WIB">01 Jan 2019</time>
+    </header>
+
+    
+
+<p>Apabila kamu pengguna linux, python sebenarnya tidak perlu diinstall karena  sebagian besar distro linux sudah menyediakannya secara default.</p>
+
+<p>Untuk mengeceknya silakan ketikkan perintah di bawah ini
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ python --version
+Python <span style="color:#ae81ff">2</span>.7.1</code></pre></div>
+Seperti yang dapat kamu lihat diatas python yang terpasang adalah versi 2.7.1, sebenarnya python ini ada dua versi yang beredar yaitu versi 2 dan versi 3.</p>
+
+<p>Untuk mengecek masing-masing versi silakan kamu ketikkan perintah berikut
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># untuk mengecek versi 2</span>
+$ python --version
+Python <span style="color:#ae81ff">2</span>.7.1
+
+<span style="color:#75715e"># untuk mengecek versi 3</span>
+$ python3 --version
+Python <span style="color:#ae81ff">3</span>.6.7</code></pre></div>
+Versi default python yang terpasang di ubuntu tidak selalu versi yang terbaru, sehingga apabila kamu ingin mengupdate python ke versi yang terbaru caranya kamu bisa ikuti langkah seperti yang saya lakukan berikut ini:</p>
+
+<h3 id="update-python-ke-versi-terbaru">Update python ke versi terbaru</h3>
+
+<p>Disini saya lebih suka menginstall secara manual jadi jika kamu ingin mencobanya bisa langsung ke sumber datanya <a href="https://www.python.org/downloads/source/">disini</a>, berikut caranya:</p>
+
+<p>Download dulu <em>source</em> nya dengan perintah di bawah ini.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz</code></pre></div>
+Setelah selesai di download, <em>exctract</em> hasil download tersebut dengan perintah
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ -xvf Python-3.7.2.tgz</code></pre></div>
+Lalu pindah ke direktori hasil <em>extract</em> tadi
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd Python-3.7.2</code></pre></div>
+Terus jalankan perintah di bawah ini untuk mulai menginstall python nya
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./configure
+$ sudo make
+$ sudo make install</code></pre></div>
+Apabila proses intalasi selesai dan berhasil, selanjutnya kita akan membuat Python3.7.2 sebagai default python3, langkahnya adalah tambahkan perintah alias pada .zshrc / .bashrc
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">alias python3<span style="color:#f92672">=</span>python3.7</code></pre></div></p>
+
+<h3 id="hapus-python">Hapus python</h3>
+
+<p>Untuk menguninstall python dari sistem ubuntu kamu, ketikkan perintah berikut:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt remove python3.7</code></pre></div>
+Jika kamu menginstall python dari sumber data dan ingin mengupdatenya ke versi terbaru, maka kamu harus menghapus file-file hasil penginstallan sebelumnya lalu ulangi proses instalasi seperti yang sudah saya jelaskan diatas. Biasanya semua file yang berkaitan dengan proses instalasi python tersebut tersimpan di path <strong>/usr/local/bin</strong> jadi kamu harus hapus file-file tersebut dengan cara:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rm /usr/local/bin/py*
+$ sudo rm /usr/local/bin/pip*
+$ sudo rm /usr/local/bin/idle*
+$ sudo rm /usr/local/bin/2to3*
+$ sudo rm /usr/local/bin/easy_install-3.7</code></pre></div>
+Mungkin cukup sekian dulu ya penjelasan mengenai cara install dan update python nya, di lain kesempatan kita akan membahas mengenai python secara lebih jauh.</p>
+
+
+  </article>
+
+
+      <footer class="site-footer">
+        <span itemscope itemtype="http://schema.org/Person">
+          <link itemprop="url" href="http://simaung.github.io/">
+          <span itemprop="name"></span>
+
+          ,
+          <span itemprop="jobTitle">Programmer</span> at
+          <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="https://asiadigitalindonesia.com"><span itemprop="name">Asia Digital Indonesia</span></a></span><br>
+
+          <a itemprop="sameAs" href="https://github.com/simaung" title="GitHub">GH</a>
+
+          <a itemprop="sameAs" href="https://twitter.com/ddhr00" title="Twitter">TW</a>
+
+          
+        </span>
+
+        
+      </footer>
+    </div>
+
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  </body>
+</html>
+
