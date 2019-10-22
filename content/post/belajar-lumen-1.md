@@ -1,5 +1,5 @@
 ---
-title: "Belajar Lumen Part 1"
+title: "Belajar Lumen #1"
 date: 2019-10-17T22:47:15+07:00
 draft: false
 ---
@@ -30,6 +30,18 @@ Sekarang coba kamu akses url  http://localhost:8000 dengan menggunakan browser, 
 ![Example image](/img/belajar-lumen/show.png)   
 
 Itu berarti kamu berhasil memasang projek lumen, sesuai dengan gambar di atas saya memasang lumen dengan versi 6.1.0 dan laravel component versi 6.0.  
+
+### Konfigurasi
+Semua konfigurasi framework lumen disimpan pada sebuah file dengan nama .env  
+
+Setelah proses penginstalan lumen sebaiknya kamu langsung setting *application key* dengan sebuah random string, sebaiknya random string ini memiliki panjang 32 karakter, karena kalau application key ini tidak kamu setting maka data enkripsi user kamu tidak akan aman, untuk mendapatkan random string ini bisa dengan cara manual kamu membuat route baru dengan method yang tugasnya membuat random string, misalnya :
+{{< highlight php >}}
+$router->get('/key', function () use ($router) {
+    return str_random(32);
+});
+{{< /highlight >}}
+
+Setelah itu baru kamu akses link http://localhost:8000/key , lalu copy hasil keluaran di browser lalu pastekan di file .env pada variabel konstanta APP_KEY= 
 
 Pada postingan selanjutnya kita akan membahas bagaimana cara membuat sample crud RESTAPI dengan lumen.
 
