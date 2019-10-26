@@ -52,19 +52,35 @@ $ php artisan make:seeder PostsTableSeeder
 {{< /highlight >}}
 Lalu ubah file **database/seed/PostsTableSeeder** menjadi seperti berikut:
 {{< highlight php >}}
-public function run()
-{
-    $faker = Faker::create('id_ID');
+<?php
 
-    foreach(range(1,11) as $i){
-        DB::table('posts')->insert([
-            'title' => $faker->sentence(10),
-            'body' => $faker->sentence(50),
-        ]);
+use Illuminate\Database\Seeder;
+
+use Faker\Factory as Faker;
+
+class PostsTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $faker = Faker::create('id_ID');
+
+        foreach(range(1,10) as $i){
+            DB::table('posts')->insert([
+                'title' => $faker->sentence(10),
+                'body' => $faker->sentence(10),
+            ]);
+        }
     }
 }
+
 {{< /highlight >}}
 Dan jalankan seeder dengan sintaks
 {{< highlight bash >}}
 $ php artisan db:seed --class=PostsTableSeeder
 {{< /highlight >}}
+Dan apabila kamu cek di mysql pada tabel posts otomatis sudah ada data hasil proses seed di atas, untuk sementara persiapan data untuk proses CRUD saya rasa cukup sampai disini dulu untuk selanjutnya kita akan coba menampilkan data tersebut mernggunakan RESTAPI.
