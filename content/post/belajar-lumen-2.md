@@ -48,5 +48,23 @@ Berdasarkan tampilan diatas saya menamai database sy dengan nama belajar_lumen d
 #### membuat seeder posts dengan Faker
 Setelah tabel posts nya terbuat sekarang kita akan mencoba menambahkan data pada tabel tersebut dengan menggunakan bantuan *seeder* dan *faker* pada laravel
 {{< highlight bash >}}
-$ php artisan make:seeder PostTableSeeder
+$ php artisan make:seeder PostsTableSeeder
+{{< /highlight >}}
+Lalu ubah file **database/seed/PostsTableSeeder** menjadi seperti berikut:
+{{< highlight php >}}
+public function run()
+{
+    $faker = Faker::create('id_ID');
+
+    foreach(range(1,11) as $i){
+        DB::table('posts')->insert([
+            'title' => $faker->sentence(10),
+            'body' => $faker->sentence(50),
+        ]);
+    }
+}
+{{< /highlight >}}
+Dan jalankan seeder dengan sintaks
+{{< highlight bash >}}
+$ php artisan db:seed --class=PostsTableSeeder
 {{< /highlight >}}
